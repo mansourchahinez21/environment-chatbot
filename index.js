@@ -27,6 +27,8 @@ const
  var db = mongoose.connect(MONGODB_URI);
  var ChatStatus = require("./models/chatstatus");
 
+System.err.println("Hello, logs!");
+
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
