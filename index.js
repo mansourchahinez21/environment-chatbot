@@ -27,8 +27,14 @@ const
   { useUnifiedTopology:true }
   
 
+<<<<<<< HEAD
  var db = mongoose.connect('mongodb://127.0.0.1/MONGODB_URI', { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
+=======
+ var db = mongoose.connect("MONGODB_URI");
+>>>>>>> bebfee5ba51f7008dcdad467e081766ba679c305
  var ChatStatus = require("./models/chatstatus");
+
+System.err.println("Hello, logs!");
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
