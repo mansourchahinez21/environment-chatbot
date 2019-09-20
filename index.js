@@ -25,14 +25,10 @@ const
   app = express().use(body_parser.json()); // creates express http server
   
   { useUnifiedTopology:true }
+  
 
- var db = mongoose.connect('mongodb://127.0.0.1/MONGODB_URI', { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 
- var db = mongoose.connect("MONGODB_URI");
 
- var ChatStatus = require("./models/chatstatus");
-
-System.err.println("Hello, logs!");
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
