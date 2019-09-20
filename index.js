@@ -25,13 +25,11 @@ const
   app = express().use(body_parser.json()); // creates express http server
   
   { useUnifiedTopology:true }
-  
 
-<<<<<<< HEAD
  var db = mongoose.connect('mongodb://127.0.0.1/MONGODB_URI', { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
-=======
+
  var db = mongoose.connect("MONGODB_URI");
->>>>>>> bebfee5ba51f7008dcdad467e081766ba679c305
+
  var ChatStatus = require("./models/chatstatus");
 
 System.err.println("Hello, logs!");
