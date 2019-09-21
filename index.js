@@ -1,4 +1,5 @@
 'use strict';
+<<<<<<< HEAD
 
 // Imports dependencies and set up http server
 const
@@ -20,6 +21,21 @@ app.post('/webhook', (req, res) => {
  
   let body = req.body;
 
+=======
+      
+
+const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
+
+
+
+
+
+// Creates the endpoint for our webhook 
+app.post('/webhook', (req, res) => {  
+ 
+  let body = req.body;
+
+>>>>>>> c7bd7a38ec06dc9f1f2910f8be3ea28affa57610
   // Checks this is an event from a page subscription
   if (body.object === 'page') {
 
@@ -28,18 +44,28 @@ app.post('/webhook', (req, res) => {
 
       // Gets the message. entry.messaging is an array, but 
       // will only ever contain one message, so we get index 0
+<<<<<<< HEAD
       //let webhook_event = entry.messaging[0];
       //console.log(webhook_event);
 	  
 	  // Gets the body of the webhook event
+=======
+     // let webhook_event = entry.messaging[0];
+     // console.log(webhook_event);
+      // Gets the body of the webhook event
+>>>>>>> c7bd7a38ec06dc9f1f2910f8be3ea28affa57610
   let webhook_event = entry.messaging[0];
   console.log(webhook_event);
 
   // Get the sender PSID
   let sender_psid = webhook_event.sender.id;
   console.log('Sender PSID: ' + sender_psid);
+<<<<<<< HEAD
 	  
 	  
+=======
+      
+>>>>>>> c7bd7a38ec06dc9f1f2910f8be3ea28affa57610
     });
 
     // Returns a '200 OK' response to all requests
@@ -89,6 +115,20 @@ app.get('/webhook', (req, res) => {
 
 // Handles messages events
 function handleMessage(sender_psid, received_message) {
+<<<<<<< HEAD
+
+}
+
+// Handles messaging_postbacks events
+function handlePostback(sender_psid, received_postback) {
+
+}
+
+// Sends response messages via the Send API
+function callSendAPI(sender_psid, response) {
+  
+}
+=======
 
 }
 
@@ -105,3 +145,16 @@ function callSendAPI(sender_psid, response) {
 
 
 
+
+
+>>>>>>> c7bd7a38ec06dc9f1f2910f8be3ea28affa57610
+
+
+
+
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> c7bd7a38ec06dc9f1f2910f8be3ea28affa57610
