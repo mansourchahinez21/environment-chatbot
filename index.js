@@ -43,7 +43,7 @@ app.post('/webhook', (req, res) => {
   // Check if the event is a message or postback and
   // pass the event to the appropriate handler function
   if (webhook_event.message) {
-	console.log('Sender PSID: ' + sender_psid);  
+	
     handleMessage(sender_psid, webhook_event.message);        
   } else if (webhook_event.postback) {
     handlePostback(sender_psid, webhook_event.postback);
@@ -110,7 +110,11 @@ function handleMessage(sender_psid, received_message) {
       "text": `You  sent the message: "${received_message.text}". Now send me an image!`
     }
   }  
-  
+ 
+	
+ // Sends the response message
+  callSendAPI(sender_psid, response);  	
+	
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
