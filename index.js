@@ -38,14 +38,14 @@ app.post('/webhook', (req, res) => {
 
   // Get the sender PSID
   let sender_psid = webhook_event.sender.id;
-	    let sender_name = webhook_event.sender.name;
+	    
   console.log('Sender PSID: ' + sender_psid);
 
   // Check if the event is a message or postback and
   // pass the event to the appropriate handler function
   if (webhook_event.message) {
 	
-    handleMessage(sender_psid, webhook_event.message,sender_name);        
+    handleMessage(sender_psid, webhook_event.message);        
   } else if (webhook_event.postback) {
     handlePostback(sender_psid, webhook_event.postback);
   }
@@ -100,7 +100,7 @@ app.get('/webhook', (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Handles messages events
-function handleMessage(sender_psid, received_message,sender_name) {
+function handleMessage(sender_psid, received_message) {
  let response;
 
   // Check if the message contains text
@@ -108,7 +108,7 @@ function handleMessage(sender_psid, received_message,sender_name) {
 
     // Create the payload for a basic text message
     response = {
-      "text": 'You  ${sender_name}" sent the message: "${received_message.text}". Now send me an image!'
+      "text": 'You  sent the message: "${received_message.text}". Now send me an image!'
     }
   }  
  
