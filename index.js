@@ -1,4 +1,3 @@
-  
 'use strict';
 
 
@@ -111,7 +110,7 @@ function handleMessage(sender_psid, received_message, sender_name) {
     }
   }  
   
-
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Handles messaging_postbacks events
@@ -160,9 +159,3 @@ function callSendAPI(sender_psid, response) {
   }); 
   
 }
-
-
-
-
-
-
