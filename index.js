@@ -108,7 +108,7 @@ app.get('/webhook', (req, res) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Handles messages events
-function handleMessage(sender_psid, received_message, sender_name) {
+function handleMessage(sender_psid, received_message) {
  let response;
 
   // Check if the message contains text
@@ -116,7 +116,7 @@ function handleMessage(sender_psid, received_message, sender_name) {
 
     // Create the payload for a basic text message
     response = {
-      "text": `You 'sender_name'  sent the message: "${received_message.text}". Now send me an image!`
+      "text": `You  sent the message: "${received_message.text}". Now send me an image!`
     }
   }  
   
