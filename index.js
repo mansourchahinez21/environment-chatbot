@@ -7,6 +7,7 @@ const
   express = require('express'),
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json()); // creates express http server
+const request = require('request');
 
 
 // Sets server port and logs message on success
@@ -110,10 +111,7 @@ function handleMessage(sender_psid, received_message, sender_name) {
     }
   }  
   
-  // Sends the response message
-  callSendAPI(sender_psid, response);  
 
-}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Handles messaging_postbacks events
@@ -145,6 +143,21 @@ function callSendAPI(sender_psid, response) {
     },
     "message": response
   }
+  
+  
+   // Send the HTTP request to the Messenger Platform // demander à facebook la methode POST via HTTP
+  request({
+    "uri": "https://graph.facebook.com/v2.6/me/messages",
+    "qs": { "access_token": PAGE_ACCESS_TOKEN },
+    "method": "POST",
+    "json": request_body
+  }, (err, res, body) => {
+    if (!err) {
+      console.log('message sent!')
+    } else {
+      console.error("Unable to send message:" + err);
+    }
+  }); 
   
 }
 
